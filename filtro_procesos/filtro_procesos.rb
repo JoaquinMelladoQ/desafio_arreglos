@@ -4,17 +4,7 @@
 
 # Ejemplo de archivo
 # procesos.data
-# 121
-# 141
-# 159
-# 131
-# 199
-# 121
-# 299
-# 312
-# 412
-# 024
-# 213
+
 # Se necesita un programa que pueda leer un archivo de las mismas características y generar un
 # archivo llamado procesos_filtrados.data donde todos los valores sean mayor a un número
 # utilizar al cargar el programa.
@@ -31,3 +21,19 @@
 # En la corrección el archivo contendrá distintos datos al presentado.
 # La revisión se realizará sobre el archivo generado, este tiene que generarse en el mismo
 # directorio de trabajo.
+
+
+data = open("procesos.data").readlines
+data_user = ARGV[0].to_i
+
+data.map! do | e |
+    e = e.chomp.to_i
+end
+
+filtered_array = data.reject { | e | e < data_user }
+
+File.open( "procesos_filtrados.data", "a") do | file |
+    filtered_array.each do | e |
+        "#{e}\n".push( file )
+    end
+end
