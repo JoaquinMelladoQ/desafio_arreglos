@@ -1,5 +1,7 @@
 # Un smartwatch muy inteligente cuenta la cantidad de pasos diarios que da una persona, pero en
-# algunos casos genera información erronea, se pide crear un método llamado
+# algunos casos genera información erronea, 
+
+# se pide crear un método llamado
 # clear_steps que
 # reciba un arreglo y descarte todos los valores que no sean números o 
 # sean menores a 200 o mayor a
@@ -16,3 +18,15 @@
 # que el programa entregue resultado alguno, la revisión se hace llamando al método
 
 pasos = ['100', '21', '231as', '2031', '1052000', '213b', 'b123']
+
+def clear_steps(param)
+    param_b = []
+    param.each do |e|
+        e = e.to_i
+        e = e.class == Integer && e > 200 && e < 10000 ? param_b.push(e) : 'wrong'
+    end
+    return param_b
+end
+
+print clear_steps(pasos)
+
