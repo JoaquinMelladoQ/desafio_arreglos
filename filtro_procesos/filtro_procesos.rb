@@ -34,6 +34,6 @@ filtered_array = data.reject { | e | e < data_user }
 
 File.open( "procesos_filtrados.data", "a") do | file |
     filtered_array.each do | e |
-        "#{e}\n".push( file )
+        file << "#{e}\n"
     end
 end
